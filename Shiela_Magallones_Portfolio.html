@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Shiela Boga Magallones | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --navy: #0f2c4a;
+    --blue: #1a4a7a;
+    --accent: #c9964a;
+    --accent-light: #f0d9b5;
+    --off-white: #f8f5f0;
+    --white: #ffffff;
+    --text: #1a1a2e;
+    --muted: #6b7280;
+    --card-bg: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--off-white);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(15,44,74,0.97);
+    backdrop-filter: blur(12px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px; height: 64px;
+    border-bottom: 1px solid rgba(201,150,74,0.3);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 700;
+    color: var(--accent); letter-spacing: 0.04em;
+  }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a {
+    color: rgba(255,255,255,0.75); text-decoration: none;
+    font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--navy) 0%, #163556 50%, #0a1f35 100%);
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 80px 24px 60px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 60% 40%, rgba(201,150,74,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(26,74,122,0.4) 0%, transparent 50%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image: linear-gradient(var(--accent) 1px, transparent 1px),
+                      linear-gradient(90deg, var(--accent) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 800px; }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(201,150,74,0.15);
+    border: 1px solid rgba(201,150,74,0.4);
+    color: var(--accent); font-size: 0.78rem; letter-spacing: 0.18em;
+    text-transform: uppercase; padding: 6px 20px; border-radius: 100px;
+    margin-bottom: 28px;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 900;
+    color: var(--white); line-height: 1.05;
+    margin-bottom: 24px;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  .hero h1 span { color: var(--accent); }
+  .hero-subtitle {
+    font-size: 1.1rem; color: rgba(255,255,255,0.65);
+    font-weight: 300; line-height: 1.7; margin-bottom: 40px;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+  .hero-badges {
+    display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+    margin-bottom: 48px;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+  .badge {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.85); font-size: 0.8rem;
+    padding: 6px 16px; border-radius: 100px;
+  }
+  .hero-cta {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+  .btn-primary {
+    background: var(--accent); color: var(--navy);
+    padding: 14px 32px; border-radius: 6px; font-weight: 600;
+    text-decoration: none; font-size: 0.9rem; letter-spacing: 0.04em;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,150,74,0.4); }
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,0.3); color: var(--white);
+    padding: 14px 32px; border-radius: 6px; font-weight: 500;
+    text-decoration: none; font-size: 0.9rem; letter-spacing: 0.04em;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--accent); background: rgba(201,150,74,0.1); }
+
+  /* SECTIONS */
+  section { padding: 96px 24px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700;
+    color: var(--navy); line-height: 1.2; margin-bottom: 16px;
+  }
+  .section-desc {
+    font-size: 1rem; color: var(--muted); max-width: 600px; line-height: 1.7;
+    margin-bottom: 56px;
+  }
+
+  /* ABOUT */
+  #about { background: var(--white); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+  }
+  .about-text p {
+    font-size: 1rem; color: #374151; line-height: 1.8; margin-bottom: 20px;
+  }
+  .about-stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  }
+  .stat-card {
+    background: var(--off-white); border-radius: 12px;
+    padding: 28px 24px; border-left: 4px solid var(--accent);
+    transition: transform 0.2s;
+  }
+  .stat-card:hover { transform: translateY(-4px); }
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem; font-weight: 900; color: var(--navy); line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label { font-size: 0.85rem; color: var(--muted); font-weight: 500; }
+
+  /* SKILLS */
+  #skills { background: var(--off-white); }
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px;
+  }
+  .skill-card {
+    background: var(--white); border-radius: 16px; padding: 32px;
+    box-shadow: 0 2px 16px rgba(15,44,74,0.06);
+    border: 1px solid rgba(15,44,74,0.07);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .skill-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(15,44,74,0.12); }
+  .skill-icon {
+    width: 52px; height: 52px; border-radius: 12px;
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; margin-bottom: 20px;
+  }
+  .skill-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem; font-weight: 700; color: var(--navy); margin-bottom: 12px;
+  }
+  .skill-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; margin-bottom: 16px; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-tag {
+    background: var(--off-white); color: var(--navy);
+    font-size: 0.75rem; font-weight: 600; padding: 4px 12px;
+    border-radius: 100px; border: 1px solid rgba(15,44,74,0.1);
+  }
+
+  /* EXPERIENCE */
+  #experience { background: var(--white); }
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 8px; top: 8px; bottom: 8px;
+    width: 2px; background: linear-gradient(to bottom, var(--accent), rgba(201,150,74,0.1));
+  }
+  .timeline-item {
+    position: relative; margin-bottom: 48px;
+    opacity: 0; transform: translateX(-20px);
+    animation: slideIn 0.5s ease forwards;
+  }
+  .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+  .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+  .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+  .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+  .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+  .timeline-item:nth-child(6) { animation-delay: 0.6s; }
+  .timeline-dot {
+    position: absolute; left: -28px; top: 6px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--accent); border: 3px solid var(--white);
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  .timeline-meta {
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    margin-bottom: 6px;
+  }
+  .timeline-date {
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em;
+    color: var(--accent); text-transform: uppercase;
+    background: var(--accent-light); padding: 3px 10px; border-radius: 100px;
+  }
+  .timeline-company { font-size: 0.85rem; color: var(--muted); font-weight: 500; }
+  .timeline-role {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 700; color: var(--navy); margin-bottom: 12px;
+  }
+  .timeline-bullets { list-style: none; }
+  .timeline-bullets li {
+    font-size: 0.9rem; color: #4b5563; line-height: 1.7; margin-bottom: 6px;
+    padding-left: 16px; position: relative;
+  }
+  .timeline-bullets li::before {
+    content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.8rem;
+  }
+  .exp-category {
+    display: inline-block; font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 10px;
+    border-radius: 100px; margin-left: 8px; vertical-align: middle;
+  }
+  .cat-cs { background: #dbeafe; color: #1e40af; }
+  .cat-marketing { background: #fef3c7; color: #92400e; }
+  .cat-admin { background: #d1fae5; color: #065f46; }
+  .cat-moderation { background: #ede9fe; color: #5b21b6; }
+
+  /* EDUCATION */
+  #education { background: var(--off-white); }
+  .edu-card {
+    background: var(--white); border-radius: 16px; padding: 40px;
+    max-width: 600px;
+    box-shadow: 0 4px 24px rgba(15,44,74,0.08);
+    border-top: 4px solid var(--accent);
+    display: flex; gap: 24px; align-items: flex-start;
+  }
+  .edu-icon {
+    width: 56px; height: 56px; border-radius: 12px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+  }
+  .edu-degree {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; font-weight: 700; color: var(--navy); margin-bottom: 6px;
+  }
+  .edu-school { font-size: 0.95rem; color: var(--muted); margin-bottom: 4px; }
+  .edu-year { font-size: 0.85rem; color: var(--accent); font-weight: 600; }
+
+  /* CONTACT */
+  #contact {
+    background: linear-gradient(135deg, var(--navy) 0%, #163556 100%);
+    text-align: center; padding: 96px 24px;
+  }
+  #contact .section-title { color: var(--white); }
+  #contact .section-desc { color: rgba(255,255,255,0.6); margin: 0 auto 48px; }
+  .contact-grid {
+    display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-bottom: 48px;
+  }
+  .contact-item {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px; padding: 20px 28px;
+    display: flex; align-items: center; gap: 14px; color: var(--white);
+    text-decoration: none; transition: background 0.2s, border-color 0.2s;
+    min-width: 240px;
+  }
+  .contact-item:hover { background: rgba(201,150,74,0.12); border-color: var(--accent); }
+  .contact-icon { font-size: 1.3rem; }
+  .contact-label { font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-bottom: 2px; }
+  .contact-value { font-size: 0.9rem; font-weight: 500; }
+
+  /* FOOTER */
+  footer {
+    background: #070f1a; text-align: center; padding: 24px;
+    font-size: 0.82rem; color: rgba(255,255,255,0.3);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slideIn {
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { gap: 16px; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-stats { grid-template-columns: 1fr 1fr; }
+    section { padding: 64px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">S. Magallones</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-tag">📋 Open to Opportunities</div>
+    <h1>Shiela Boga<br/><span>Magallones</span></h1>
+    <p class="hero-subtitle">
+      Customer Service Professional · Admin Support Specialist · Digital Marketing & SEO<br/>
+      10+ Years of Experience Across BPO, Marketing & Operations
+    </p>
+    <div class="hero-badges">
+      <span class="badge">📞 Customer Service</span>
+      <span class="badge">🔍 SEO Specialist</span>
+      <span class="badge">🗂️ Admin Support</span>
+      <span class="badge">📣 Media Buying</span>
+      <span class="badge">📅 Appointment Setting</span>
+      <span class="badge">🧩 CRM Management</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary">Get In Touch</a>
+      <a href="#experience" class="btn-outline">View Experience</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-label">About Me</div>
+        <h2 class="section-title">A Versatile Professional You Can Rely On</h2>
+        <p>
+          I am a dedicated and results-oriented professional with over a decade of experience across customer service, BPO operations, digital marketing, administrative support, and content moderation.
+        </p>
+        <p>
+          My career spans both local and international clients — from handling insurance inquiries at Everise to running SEO campaigns for a US-based agency. I bring the same standard of excellence whether I'm resolving a customer complaint, building a Facebook ad campaign, or managing branch records.
+        </p>
+        <p>
+          I am currently completing my Bachelor of Science in Office Administration at the Polytechnic University of the Philippines, reinforcing my commitment to lifelong learning and professional excellence.
+        </p>
+      </div>
+      <div class="about-stats">
+        <div class="stat-card">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Years of Work Experience</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">8</div>
+          <div class="stat-label">Roles Across Industries</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Core Specializations</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">🇺🇸🇵🇭</div>
+          <div class="stat-label">Local & International Clients</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-label">What I Bring</div>
+    <h2 class="section-title">Core Skill Areas</h2>
+    <p class="section-desc">A diverse toolkit built across real-world roles in BPO, digital agencies, and operations.</p>
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <div class="skill-icon">📞</div>
+        <h3>Customer Service & BPO</h3>
+        <p>Experienced in handling high-volume inbound and outbound calls, resolving escalations, and ensuring customer satisfaction across healthcare, construction, and retail sectors.</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Inbound/Outbound Calls</span>
+          <span class="skill-tag">Complaint Resolution</span>
+          <span class="skill-tag">CRM Management</span>
+          <span class="skill-tag">Tracker Updates</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">🗂️</div>
+        <h3>Administrative Support</h3>
+        <p>Proficient in supporting daily operations including branch monitoring, record-keeping, team coordination, and performing audits to ensure process compliance.</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Records Management</span>
+          <span class="skill-tag">Branch Operations</span>
+          <span class="skill-tag">ClickUp</span>
+          <span class="skill-tag">Reporting</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">🔍</div>
+        <h3>SEO & Digital Marketing</h3>
+        <p>Skilled in keyword research, on-page optimization, content generation, link building, and tracking website performance metrics to improve organic rankings.</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Keyword Research</span>
+          <span class="skill-tag">Link Building</span>
+          <span class="skill-tag">Content Creation</span>
+          <span class="skill-tag">Performance Tracking</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">📣</div>
+        <h3>Media Buying & Ad Campaigns</h3>
+        <p>Hands-on experience building and managing Facebook ad campaigns, GoHighLevel (GHL) buildouts, and troubleshooting integrations for digital marketing agencies.</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Facebook Ads</span>
+          <span class="skill-tag">GoHighLevel (GHL)</span>
+          <span class="skill-tag">Integration Calls</span>
+          <span class="skill-tag">Campaign Setup</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">📅</div>
+        <h3>Lead Generation & Appointment Setting</h3>
+        <p>Experienced in cold calling, prospect qualification, and setting qualified appointments for sales teams using dialers and CRM tools.</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Cold Calling</span>
+          <span class="skill-tag">Prospect Qualification</span>
+          <span class="skill-tag">Appointment Booking</span>
+          <span class="skill-tag">Lead Tracking</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">🛡️</div>
+        <h3>Content Moderation</h3>
+        <p>Reviewed and moderated user-generated content in real time at TaskUs, ensuring platforms remained safe, compliant, and free from scams and harmful material.</p>
+        <div class="skill-tags">
+          <span class="skill-tag">UGC Review</span>
+          <span class="skill-tag">Policy Compliance</span>
+          <span class="skill-tag">Community Guidelines</span>
+          <span class="skill-tag">Real-Time Moderation</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-label">Career Journey</div>
+    <h2 class="section-title">Professional Experience</h2>
+    <p class="section-desc">A decade of consistent growth across customer service, marketing, and operations.</p>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <span class="timeline-date">May 2024 – Present</span>
+          <span class="timeline-company">The Expert SEO Group · Philadelphia, US (Remote)</span>
+        </div>
+        <div class="timeline-role">SEO Specialist <span class="exp-category cat-marketing">Digital Marketing</span></div>
+        <ul class="timeline-bullets">
+          <li>Research and optimize keywords to improve organic search visibility</li>
+          <li>Track and analyze daily website metrics for performance insights</li>
+          <li>Generate SEO-optimized content and execute link-building strategies</li>
+          <li>Collaborate with cross-functional teams to align SEO with marketing goals</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <span class="timeline-date">Aug 2023 – May 2024</span>
+          <span class="timeline-company">Bruntwork · Remote</span>
+        </div>
+        <div class="timeline-role">Customer / Admin Support <span class="exp-category cat-admin">Admin</span><span class="exp-category cat-cs">Customer Service</span></div>
+        <ul class="timeline-bullets">
+          <li>Managed inbound/outbound calls, addressing customer complaints and inquiries</li>
+          <li>Updated team trackers, records, and performed branch admin tasks</li>
+          <li>Conducted car audits and monitored branch operating hours</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <span class="timeline-date">Feb 2023 – Aug 2023</span>
+          <span class="timeline-company">Everise · Taguig City, PH</span>
+        </div>
+        <div class="timeline-role">Healthcare CSR <span class="exp-category cat-cs">Customer Service</span></div>
+        <ul class="timeline-bullets">
+          <li>Handled inbound/outbound calls for healthcare insurance clients</li>
+          <li>Assisted customers with inquiries and updated notes and trackers</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <span class="timeline-date">May 2022 – Aug 2023</span>
+          <span class="timeline-company">Aspen Digital Marketing · Aspen, CO (Remote)</span>
+        </div>
+        <div class="timeline-role">Media Buying Assistant <span class="exp-category cat-marketing">Digital Marketing</span></div>
+        <ul class="timeline-bullets">
+          <li>Built and managed Facebook ad campaigns for client acquisition</li>
+          <li>Performed GoHighLevel (GHL) buildouts and ClickUp task updates</li>
+          <li>Resolved Facebook and GHL integration issues</li>
+          <li>Conducted integration and onboarding calls with clients</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <span class="timeline-date">Mar 2021 – Oct 2022</span>
+          <span class="timeline-company">TaskUs Inc · Quezon City, PH</span>
+        </div>
+        <div class="timeline-role">Content Moderator <span class="exp-category cat-moderation">Moderation</span></div>
+        <ul class="timeline-bullets">
+          <li>Reviewed UGC in real time to ensure compliance with community guidelines</li>
+          <li>Identified and removed scams, illegal content, and harmful material</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-meta">
+          <span class="timeline-date">Jun 2017 – Mar 2021</span>
+          <span class="timeline-company">Alorica Teleservices Inc. · Makati City, PH</span>
+        </div>
+        <div class="timeline-role">Customer Service Representative <span class="exp-category cat-cs">Customer Service</span></div>
+        <ul class="timeline-bullets">
+          <li>Managed high-volume inbound and outbound customer service calls</li>
+          <li>Generated sales leads that converted into new customer accounts</li>
+          <li>Resolved complaints and followed up to ensure full resolution</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-label">Education</div>
+    <h2 class="section-title">Academic Background</h2>
+    <p class="section-desc">Combining real-world experience with formal education in office and business administration.</p>
+    <div class="edu-card">
+      <div class="edu-icon">🎓</div>
+      <div>
+        <div class="edu-degree">Bachelor of Science in Office Administration</div>
+        <div class="edu-school">Polytechnic University of the Philippines</div>
+        <div class="edu-year">2021 – 2025</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label" style="color:var(--accent)">Let's Connect</div>
+    <h2 class="section-title">Get In Touch</h2>
+    <p class="section-desc">I'm open to full-time, part-time, and remote opportunities in customer service, admin support, and digital marketing.</p>
+    <div class="contact-grid">
+      <a href="tel:+639452889751" class="contact-item">
+        <span class="contact-icon">📱</span>
+        <div>
+          <div class="contact-label">Phone</div>
+          <div class="contact-value">+63 945 288 9751</div>
+        </div>
+      </a>
+      <a href="mailto:shiela27magallones@gmail.com" class="contact-item">
+        <span class="contact-icon">✉️</span>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value">shiela27magallones@gmail.com</div>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/in/shielamagallones-068a03232/" target="_blank" class="contact-item">
+        <span class="contact-icon">💼</span>
+        <div>
+          <div class="contact-label">LinkedIn</div>
+          <div class="contact-value">View Profile</div>
+        </div>
+      </a>
+      <div class="contact-item">
+        <span class="contact-icon">📍</span>
+        <div>
+          <div class="contact-label">Location</div>
+          <div class="contact-value">Pasig, Metro Manila, PH</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Shiela Boga Magallones · All Rights Reserved
+</footer>
+
+</body>
+</html>
